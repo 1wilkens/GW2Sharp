@@ -34,14 +34,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\MrFloya.Library.General.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,33 +54,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Items\ArmorItem.cs" />
-    <Compile Include="Items\Attribute.cs" />
-    <Compile Include="Items\BackItem.cs" />
-    <Compile Include="Items\BagItem.cs" />
-    <Compile Include="Items\BaseItem.cs" />
-    <Compile Include="Items\ConsumableItem.cs" />
-    <Compile Include="Items\ContainerItem.cs" />
-    <Compile Include="Items\Details\ArmorDetails.cs" />
-    <Compile Include="Items\AttributeModifier.cs" />
-    <Compile Include="Items\Details\BackDetails.cs" />
-    <Compile Include="Items\Details\BagDetails.cs" />
-    <Compile Include="Items\Details\ConsumableDetails.cs" />
-    <Compile Include="Items\Details\ContainerDetails.cs" />
-    <Compile Include="Items\Details\GatheringDetails.cs" />
-    <Compile Include="Items\Details\GizmoDetails.cs" />
-    <Compile Include="Items\Details\InfixUpgrade.cs" />
-    <Compile Include="Items\Details\InfusionSlot.cs" />
-    <Compile Include="Items\Details\ToolDetails.cs" />
-    <Compile Include="Items\Details\TrinketDetails.cs" />
-    <Compile Include="Items\Details\UpgradeComponentDetails.cs" />
-    <Compile Include="Items\GameType.cs" />
-    <Compile Include="Items\GatheringItem.cs" />
-    <Compile Include="Items\ItemFlag.cs" />
-    <Compile Include="Items\ItemRarity.cs" />
-    <Compile Include="Items\ItemType.cs" />
-    <Compile Include="Items\WeaponItem.cs" />
-    <Compile Include="Items\Details\WeaponDetails.cs" />
+    <Compile Include="Models\Items\ArmorItem.cs" />
+    <Compile Include="Models\Items\Attribute.cs" />
+    <Compile Include="Models\Items\BackItem.cs" />
+    <Compile Include="Models\Items\BagItem.cs" />
+    <Compile Include="Models\Items\BaseItem.cs" />
+    <Compile Include="Models\Items\ConsumableItem.cs" />
+    <Compile Include="Models\Items\ContainerItem.cs" />
+    <Compile Include="Models\Items\Details\ArmorDetails.cs" />
+    <Compile Include="Models\Items\AttributeModifier.cs" />
+    <Compile Include="Models\Items\Details\BackDetails.cs" />
+    <Compile Include="Models\Items\Details\BagDetails.cs" />
+    <Compile Include="Models\Items\Details\ConsumableDetails.cs" />
+    <Compile Include="Models\Items\Details\ContainerDetails.cs" />
+    <Compile Include="Models\Items\Details\GatheringDetails.cs" />
+    <Compile Include="Models\Items\Details\GizmoDetails.cs" />
+    <Compile Include="Models\Items\Details\InfixUpgrade.cs" />
+    <Compile Include="Models\Items\Details\InfusionSlot.cs" />
+    <Compile Include="Models\Items\Details\ToolDetails.cs" />
+    <Compile Include="Models\Items\Details\TrinketDetails.cs" />
+    <Compile Include="Models\Items\Details\UpgradeComponentDetails.cs" />
+    <Compile Include="Models\Items\GameType.cs" />
+    <Compile Include="Models\Items\GatheringItem.cs" />
+    <Compile Include="Models\Items\ItemFlag.cs" />
+    <Compile Include="Models\Items\ItemRarity.cs" />
+    <Compile Include="Models\Items\ItemType.cs" />
+    <Compile Include="Models\Items\WeaponItem.cs" />
+    <Compile Include="Models\Items\Details\WeaponDetails.cs" />
     <Compile Include="Tools\API.cs" />
     <Compile Include="GW2API.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +91,7 @@
     <Compile Include="Tools\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Continent.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

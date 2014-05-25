@@ -4,6 +4,8 @@ using RestSharp;
 using RestSharp.Deserializers;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace MrFloya.GW2Sharp.Playground
 {
@@ -11,22 +13,22 @@ namespace MrFloya.GW2Sharp.Playground
     {
         static void Main(string[] args)
         {
-            var client = new RestClient("https://api.guildwars2.com/v1/");
+            var api = GW2API.Create();
 
-            var request = new RestRequest("item_details.json", Method.GET);
-            request.AddParameter("item_id", 25845);
-            request.AddParameter("lang", "de");
-
-            var response = client.Execute(request).Content;
-
+            var continents = api.GetContinents();
+       
             Console.ReadKey();
         }
     }
 
-    public class WorldEntry
+    public class Continent
     {
-        public string ID { get; internal set; }
-        public string Name { get; internal set; }
+        public string Name { get; set; }
+        [JsonProperty(PropertyName="continent_dims")]
+        public int[] Dimensions { get; set; }
+        public byte MinZoomLevel { get; set; }
+        public byte MaxZoomLevel { get; set; }
+        public int[] Floors { get; set; }
     }
 
     public class Test

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Newtonsoft.Json;
 using RestSharp;
@@ -16,18 +17,10 @@ namespace MrFloya.GW2Sharp.Tools
         private APIConfiguration _config = null;
         private RestClient _client = null;
 
-        private API()
-        {
-            
-        }
-
         private API(APIConfiguration config)
         {
-            _api = new API()
-                {
-                    _config = config,
-                    _client = new RestClient(Constants.API_BASE_URL + Enum.GetName(typeof(APIVersion), _config.Version).ToLower())
-                };
+            _config = config;
+            _client = new RestClient(Constants.API_BASE_URL + "/" + Enum.GetName(typeof(APIVersion), _config.Version).ToLower());
         }
 
         /// <summary>
@@ -43,12 +36,15 @@ namespace MrFloya.GW2Sharp.Tools
                 throw new ArgumentNullException("endpoint");
 
             var request = new RestRequest(endpoint.URL);
-            foreach (var parameter in parameters)
+            if (parameters != null)
             {
-                //ToDo: |13.09.13| Validate and add language from APIConfiguration where appropiate
-                request.AddParameter(parameter.Key, parameter.Value);
+                foreach (var parameter in parameters)
+                {
+                    //ToDo: |13.09.13| Validate and add language from APIConfiguration where appropiate
+                    request.AddParameter(parameter.Key, parameter.Value);
+                }
             }
-            return _client.Execute(request).ToString();
+            return _client.Execute(request).Content.ToString();
         }
 
         internal T CallAPI<T>(APIEndpoint endpoint, IEnumerable<KeyValuePair<string, object>> parameters)
